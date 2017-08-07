@@ -1,0 +1,45 @@
+
+<!-- @Author: Lanten -->
+<!-- @Date:   2017-07-03 10:58:27 -->
+<!-- @Last Modified by:   Lanten -->
+<!-- @Last Modified time: 2017-07-03 15:53:58 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <title>Document</title>
+  
+  <script src="../js/jquery-1.11.3.min.js"></script>
+  <style>
+  	li{
+  		height:300px;
+  		border: 1px solid blue;
+  		list-style: none;
+  	}
+
+  </style>
+  <link rel="stylesheet" href="">
+  <body>
+		  <audio class="audio" controls>
+
+			</audio>
+			<button class="btn" type="button">提交</button>
+  </body>
+</html>
+<script>
+
+var audio=$(".audio").get(0);//将jq对象转为json对象
+audio.src="http://m7.music.126.net/20170703161646/835093b94c365b89cdf0c9dc1187f83c/ymusic/9fc4/8579/76ee/9a95a9a7ab6df121f9d415df7586ae7a.mp3";
+audio.play();
+$(".btn").click(function(){
+	if(audio.play()){
+		audio.pause();
+	}else{
+		audio.play();
+	}
+	
+})
+</script>
