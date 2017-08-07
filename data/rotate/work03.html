@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title></title>
+
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0px;padding:0px}
+ul{list-style:none;}
+body{background:#fbfbfb;}
+.inner{width:930px;margin:0 auto;}
+a{ text-decoration:none; }
+/*header*/
+.header{height:89px;transition:transform 1s}
+.header:hover{transform:scale(1,1.5)}
+.top{height:114px;width:114px;border-radius:50%;margin:0 auto;}
+.top img{width:100%;height:100%;}
+.inf{font-size:36px;font-weight:bold;line-height:40px;color:#666785;transition:transform 1s}
+.inf a{display: block;color:#666785;}
+.inf:hover{transform:scale(1.5,1.5)}
+.work{font-size:16px;font-weight:normal;line-height:20px;color:#666785;text-align:center;}
+/*foot*/
+.foot{height:135px;background-image:url(../../images/foot1_03.jpg);background-position:bottom;background-repeat:no-repeat}
+.footbg{height:75px;background-image:url(../../images/footbg_03.jpg);background-repeat:no-repeat;margin-left:50%;}
+.foot .wenzi{margin-left:400px;height:60px;color:#a7a9b5;font-size:12px;line-height:60px;}
+/*cont*/
+.cont{height:384px;}
+.slide{
+    width: 1000px;
+    height: 409px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slide .pictures{
+    transform-style: preserve-3d;
+    perspective: 600px;
+}
+
+.slide .pictures img{
+    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    
+    opacity: 0;
+    transform-origin: bottom;
+}
+
+.slide .nav div {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 45%;
+}
+
+.slide .nav .left {
+    background-image: url(img/anim/l.png);
+    left: -60px;
+	cursor:pointer;
+}
+.slide .nav .right {
+    background-image: url(img/anim/r.png);
+    right: -60px;
+	cursor:pointer;
+}
+.slide .pictures img:nth-child(1) {
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+.s1{animation:s1 1s forwards}
+.s2{animation:s2 1s forwards}
+.s3{animation:s3 1s forwards}
+.s4{animation:s4 1s forwards}
+@keyframes s1{
+	0%{transform:rotateX(0deg);opacity:1}	
+	100%{transform:rotateX(-180deg);opacity:0}	
+}
+
+@keyframes s2{
+	0%{transform:rotateX(180deg);opacity:0}	
+	100%{transform:rotateX(0deg);opacity:1}	
+}
+
+@keyframes s3{
+	0%{transform:rotateX(0deg);opacity:1}	
+	100%{transform:rotateX(180deg);opacity:0}	
+}
+@keyframes s4{
+	0%{transform:rotateX(-180deg);opacity:0}	
+	100%{transform:rotateX(0deg);opacity:1}	
+}
+
+
+</style>
+
+<script type="text/javascript" src="js/jquery-3.1.0.min.js" ></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var n=0;
+	$('.left').click(function(){
+		$('img').eq(n).removeClass().addClass("s1"); 
+		n++;
+		if(n>=5){
+			n=0	
+		}
+		 //console.log(n)
+		
+		$('img').eq(n).removeClass().addClass("s2"); 
+	}) 
+   
+	$('.right').click(function(){
+		$('img').eq(n).removeClass().addClass("s3"); 
+		//console.log(n)
+		n--;
+		if(n<0){
+			n=4	
+		}
+		$('img').eq(n).removeClass().addClass("s4"); 
+	})
+	
+})
+</script>
+</head>
+<body>
+<div class="inner">
+<!-- header -->
+    <div class="header"><a href="index.html"><img src="../../images/back_02.jpg" /></a></div>
+	<div class="top">
+    	<div class="inf"><a href="../canvas.html">canvas</a></div>
+        <div class="work">Works</div>
+	</div>
+<!-- cont -->
+    <div class="cont">
+	    <div class="slide">
+	        <div class="pictures">
+	            <img src="img/anim/1.jpg" />
+	            <img src="img/anim/2.jpg" />
+	            <img src="img/anim/3.jpg" />
+	            <img src="img/anim/4.jpg" />
+	            <img src="img/anim/5.jpg" />
+	        </div>
+	        <div class="nav">
+	            <div class="left"></div>
+	            <div class="right"></div>
+	        </div>
+	    </div>
+	</div>
+    <div class="foot">
+   		<div class="footbg"></div>
+    	<div class="wenzi"><h4>I Believe I am The Best</h4></div>
+    </div>
+</div>
+</body>
+</html>

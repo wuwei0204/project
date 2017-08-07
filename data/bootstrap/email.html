@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart.js"></script>
+   <!--  <script src="js/script.js"></script> -->
+    <style>
+        .navbar img{width:40px;}
+        .pad_10{padding-bottom:10px;}
+
+        .img_60{width:60px;height:60px;}
+        footer{text-align:center;padding:30px}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default" >
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">OA办公系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;管理首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+                        <li><a href="content.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+                        <li><a href="label.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+                        <li class="active"><a href="#email.html><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;我的邮箱</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <div id="img" style="width: 40px; height: 40px; margin-top: 5px;">
+                                <a href=""#><img class="img-circle img-responsive" src="images/6.jpg" /></a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">管理员 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;账号中心</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    最近联系人
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    我的同事
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    我的朋友
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                    <li class="list-group-item"><span class="glyphicon glyphicon-star-empty"></span>&nbsp;&nbsp;小星星</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <h4>联系方式：18866666666</h4>
+        </div>
+    </footer>
+</body>
+</html>
+</html>
+<script>
+    $('.carousel').carousel({
+        interval: 1000
+    })
+</script>

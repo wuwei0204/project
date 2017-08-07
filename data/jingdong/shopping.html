@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购物车</title>
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0px;padding:0px}
+ul,ol{ list-style:none}
+h3{ height:40px}
+.shopping{ width:500px; margin:100px auto; padding:20px 20px 20px 240px; border:1px solid #ccc; position:relative}
+.shopping .girlImg{ position:absolute; left:20px; width:200px}
+.imgList{ position:absolute; top:240px; left:20px; width:220px}
+.imgList li{ float:left; margin-right:8px; border:2px solid transparent}
+.imgList .ac{border:2px solid red}
+.imgList li img{ width:30px; display:block}
+.price{ height:50px; font-size:30px; color:red; font-weight:bold}
+.priceList{ overflow:hidden; margin:20px 0}
+.priceList li{ float:left; height:30px; line-height:30px; padding:0 10px; border:2px solid #999; margin-right:10px; cursor:pointer}
+.priceList .ac{ border:2px solid red}
+.changeNum{ position:relative; margin:20px 0}
+.changeNum input{ width:40px; height:41px; text-align:center; line-height:40px;border:1px solid #ccc;}
+.changeNum button{height:22px; width:20px; background:none; border:1px solid #ccc; position:absolute;}
+.changeNum .addBtn{ left:41px; top:0px;}
+.changeNum .subBtn{ left:41px; top:21px;}
+.okBtn{ height:30px; width:100px}
+
+</style>
+</head>
+
+<body>
+<div class="shopping">
+	<img id="girl" class="girlImg" src="0.jpg">
+    <ol id="imgList" class="imgList">
+    	<li><img src="0.jpg"></li>
+    	<li><img src="1.jpg"></li>
+        <li><img src="2.jpg"></li>
+        <li><img src="3.jpg"></li>
+        <li><img src="4.jpg"></li>
+    </ol>
+    <h3>男票随你选，想要带回家！！</h3>
+    <div id="price" class="price"><em></em> 元</div>
+    <ul id="priceList" class="priceList">
+        <li>冷酷型</li>
+        <li>呆萌型</li>
+        <li>暖男型</li>
+        <li>全能型</li>
+    </ul>
+    <div id="changeNum" class="changeNum">
+        <input type="text" value="1">
+        <button class="addBtn" type="button">+</button>
+        <button class="subBtn" type="button">-</button>
+    </div>
+    <button id="okBtn" class="okBtn" type="button" disabled>加入购物车</button>
+</div>
+</body>
+</html>
+<script>
+//声明价格数组
+var arr=[520,6666,8888,99999,"520~99999"];
+//获得标准数组父级---等级盒子
+var oPriceList=document.getElementById("priceList");
+//根据父级获得等级数组---冷酷型
+var aLi=oPriceList.getElementsByTagName("li");
+//获得大图浏览对象--悬停轮播大图
+var oImg=document.getElementById("girl");
+//获得小图对象集合父级
+var oImgList=document.getElementById("imgList");
+//console.log(oImgList)
+//获得小图对象集合
+var aLiImg=oImgList.getElementsByTagName("li");
+//console.log(aLiImg.length)
+//获得价位对象
+var oPrice=document.getElementById("price");
+//根据价位对象  获得文本价格
+var oEm=oPrice.getElementsByTagName("em")[0];
+//获得改变对象
+var oChangenum=document.getElementById("changeNum");
+//根据改变对象 获得改变按钮
+var aChbtn=oChangenum.getElementsByTagName("button");
+//根据改变对象 获得文本内容的改变
+var oInput=oChangenum.getElementsByTagName("input")[0];
+//加入购物车按钮
+var oBtn=document.getElementById("okBtn");
+//价格对象内容   价格数组  的长度-1
+oEm.innerHTML=arr[arr.length-1];
+
+//清空边框线  封装函数
+function clear(){
+	for(var i=0;i<aLi.length;i++){
+			aLi[i].className="";	
+	}
+	for(var j=0;j<aLiImg.length;j++){
+			aLiImg[j].className="";	
+	}
+}
+
+//循环等级数组 判断点击 标准对象
+var sel;
+for(var i=0;i<aLi.length;i++){
+	aLi[i].index=i;
+	aLi[i].onclick=function(){  //选择点击事件
+		if(sel!=this.index){
+			clear();
+			this.className="ac";  //选中等级加边框线
+			aLiImg[this.index+1].className="ac";//相对应小图加边框线
+			oEm.innerHTML=arr[this.index];//价钱内容改变
+			sel=this.index;
+			oImg.src=this.index+1+".jpg";//大图改变
+			oBtn.disabled=false;//按钮有用
+		}else{
+			clear();
+			sel=null;
+			oImg.src="0.jpg";//原始大图
+			oEm.innerHTML=arr[arr.length-1];//原始价格
+			oBtn.disabled=true;	//按钮失效
+		}	
+	}
+}
+//循环数组  鼠标悬停显示图片
+for(var l=0; l<aLiImg.length; l++){
+	aLiImg[l].index=l;
+	aLiImg[l].onmouseover=function(){ //小图鼠标悬停事件
+		for(var j=0; j<aLiImg.length; j++){
+			aLiImg[j].className="";//清空边框线
+		};
+		this.className="ac";//悬停对象加边框线
+		oImg.src=this.index+".jpg";//大图改变
+	}
+};
+//加减按钮
+var n=1;  //数量
+aChbtn[0].onclick=function(){
+	n++;
+	if(n>=4){
+		alert("不要太贪心哦");	
+	}
+	oInput.value=n;
+}
+aChbtn[1].onclick=function(){
+	n--;
+	if(n<1){
+		n=1;
+	}
+	oInput.value=n;
+}
+
+//购物车按钮
+oBtn.onclick=function(){
+	alert("哇塞，男票可以带回家咯!")	
+}
+</script>
+

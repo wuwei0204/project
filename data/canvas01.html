@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button{margin:0px;padding:0px}
+ul{list-style:none;}
+body{background:#fbfbfb;}
+.inner{width:930px;margin:0 auto;}
+a{ text-decoration:none; }
+/*header*/
+.header{height:89px;transition:transform 1s}
+.header:hover{transform:scale(1,1.5)}
+.top{height:114px;width:114px;border-radius:50%;margin:0 auto;}
+.top img{width:100%;height:100%;}
+.inf{font-size:36px;font-weight:bold;line-height:40px;transition:transform 1s}
+.inf a{display: block;color:#666785;}
+.inf:hover{transform:scale(1.5,1.5)}
+.work{font-size:16px;font-weight:normal;line-height:20px;color:#666785;text-align:center;}
+/*cont*/
+.cont{height:384px;}
+.gallery{width:800px;height:260px;}
+.center{position:relative;left:0;right:0;bottom:0;top:0;margin:auto;}
+.item{position:absolute;width:200px;height:65px;transition:transform 2s 1s;}
+.pic{width:100%;height:100%;transition:transform 2s;}
+/*foot*/
+.foot{height:135px;background-image:url(../images/foot1_03.jpg);background-position:bottom;background-repeat:no-repeat}
+.footbg{height:75px;background-image:url(../images/footbg_03.jpg);background-repeat:no-repeat;margin-left:50%;}
+.foot .wenzi{margin-left:400px;height:60px;color:#a7a9b5;font-size:12px;line-height:60px;}
+</style>
+</head>
+
+<body>
+<div class="inner">
+<!-- header -->
+    <div class="header"><a href="../index.html"><img src="../images/back_02.jpg" /></a></div>
+	<div class="top">
+    	<div class="inf"><a href="canvas.html">canvas</a></div>
+        <div class="work">Works</div>
+	</div>
+<!-- cont -->
+    <div class="cont">
+        <div class="gallery center">
+            
+        </div>
+    </div>
+<!-- foot -->
+    <div class="foot">
+   		<div class="footbg"></div>
+    	<div class="wenzi"><h4>I Believe I am The Best</h4></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/jQuery.iAccordion.js"></script>
+<script>
+var gallery=$('.gallery');
+
+
+//1  初始化25个div--------------------------------------------------------
+function init(){
+	for(i=0;i<16;i++){
+		var x=i%4;
+		var y=parseInt(i/4);
+		$('<div class="item"><div class="pic"></div></div>').css({"left":x*200+"px","top":y*65+"px"}).appendTo(gallery);
+	}	
+}
+init();
+//2 给所有div加背景 图片------------------------------------------------------
+function showAll(){
+	$('.item').each(function(i, element) {    //i  0~24
+		var x=i%4;
+		var y=parseInt(i/4);
+		var deg=Math.random()*60-30;
+		$(this).css({
+			"transform":"translate("+(x-2)*20+"px,"+(y-2)*20+"px) rotate("+deg+"deg)",
+		});
+		
+		$(this).find('.pic').css({
+			'background-image':'url(../images/'+i+'.jpg)',
+			'background-size':'cover',
+			"transform":"scale(0.95,0.90)",
+		})
+	})
+}
+showAll();
+// 3显示大背景图片------------------------------------------------------
+function showItem(index){
+	$('.item').each(function(i, element) {
+		var x=i%4;
+		var y=parseInt(i/4);
+		$(this).css({
+			"transform":"translate(0,0) rotate("+0+"deg)",
+		});
+		
+		$(this).find('.pic').css({
+			'background-image':'url(../images/'+index+'.jpg)',
+			'background-size':'auto',
+			'background-position':x*(-200)+'px '+y*(-65)+'px',
+			"transform":"scale(1)",
+		})
+	})
+}
+//4点击切换大小图------------------------------------------------
+var isShowall=true;
+$('.item').click(function(){
+	var index=$(this).index();
+	if(isShowall){
+		showItem(index);
+	}else{
+		showAll();	
+	}
+	isShowall=!isShowall;
+})
+</script>
